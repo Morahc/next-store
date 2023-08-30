@@ -28,10 +28,6 @@ export async function POST(req: Request, { params }: { params: { storeId: string
       return new NextResponse('Images are required', { status: 400 });
     }
 
-    if (!shortDesc) {
-      return new NextResponse('Short Description is required', { status: 400 });
-    }
-
     if (!categoryId) {
       return new NextResponse('Category id is required', { status: 400 });
     }
@@ -59,7 +55,6 @@ export async function POST(req: Request, { params }: { params: { storeId: string
       data: {
         name,
         desc,
-        shortDesc,
         isFeatured,
         isArchived,
         categoryId,

@@ -1,13 +1,6 @@
-# Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL, 2023
+# Full Stack Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, PostgreSQL
 
-![Copy of Copy of Fullstack Twitter Clone (1)](https://github.com/AntonioErdeljac/next13-ecommerce-admin/assets/23248726/088760cb-837d-44b7-a959-63089385d0a0)
-
-
-For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
-
-This is a repository for a Full Stack E-Commerce + Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, MySQL
-
-[VIDEO TUTORIAL](https://youtu.be/5miHyP6lExg)
+This is a repository for a Full Stack Dashboard & CMS: Next.js 13 App Router, React, Tailwind, Prisma, PostgreSQL
 
 Key Features:
 
@@ -21,23 +14,12 @@ Key Features:
 - You will be able to create, update and delete "Billboards" which are these big texts on top of the page. You will be able to attach them to a single category, or use them standalone (Our Admin generates API for all of those cases!)
 - You will be able to Search through all categories, products, sizes, colors, billboards with included pagination!
 - You will be able to control which products are "featured" so they show on the homepage!
-- You will be able to see your orders, sales, etc.
-- You will be able to see graphs of your revenue etc.
-- You will learn Clerk Authentication!
-- Order creation
-- Stripe checkout
-- Stripe webhooks
-- MySQL + Prisma + PlanetScale
 
 ### Prerequisites
 
 **Node version 14.x**
 
 ### Cloning the repository
-
-```shell
-git clone https://github.com/AntonioErdeljac/next13-ecommerce-admin.git
-```
 
 ### Install packages
 
@@ -55,6 +37,10 @@ NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
 
 # This was inserted by `prisma init`:
 # Environment variables declared in this file are automatically made available to Prisma.
@@ -65,17 +51,7 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
 DATABASE_URL=''
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=""
-STRIPE_API_KEY=
-FRONTEND_STORE_URL=http://localhost:3001
-STRIPE_WEBHOOK_SECRET=
 ```
-
-### Connect to PlanetScale and Push Prisma
-```shell
-npx prisma generate
-npx prisma db push
-```
-
 
 ### Start the app
 
@@ -83,10 +59,12 @@ npx prisma db push
 npm run dev
 ```
 
-## Available commands
+## Demo Images
 
-Running commands with npm `npm run [command]`
-
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+![colors](/docs/images/colours.png)
+![sizes](/docs/images/sizes.png)
+![brands](/docs/images/brands.png)
+![categories](/docs/images/categories.png)
+![create product](/docs/images/create-product.png)
+![products](/docs/images/products.png)
+![variants](/docs/images/product-variant.png)

@@ -30,7 +30,6 @@ model Product {
   storeId    String
   store      Store       @relation(fields: [storeId], references: [id], onDelete: Cascade)
   name       String
-  shortDesc  String
   desc       String
   isFeatured Boolean     @default(false)
   isArchived Boolean     @default(false)
@@ -119,8 +118,8 @@ model Variant {
   size       Size?     @relation(fields: [sizeId], references: [id])
   colorId    String?
   color      Color?    @relation(fields: [colorId], references: [id])
-  discount   Discount? @relation(fields: [discountId], references: [id])
   discountId String?
+  discount   Discount? @relation(fields: [discountId], references: [id])
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 }
@@ -131,6 +130,7 @@ model Order {
   storeId    String
   orderItems OrderItem[]
   isPaid     Boolean     @default(false)
+  email      String
   phone      String      @default("")
   address    String      @default("")
   createdAt  DateTime    @default(now())

@@ -2,7 +2,7 @@
 
 import * as z from 'zod';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
@@ -33,11 +33,11 @@ import {
 } from '@/components/ui/select';
 import ImageUpload from '@/components/ui/image-upload';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Editor } from '@/components/editor';
 
 const formSchema = z.object({
   name: z.string().min(1),
   desc: z.string().min(1),
-  shortDesc: z.string().min(1),
   images: z.object({ url: z.string() }).array(),
   categoryId: z.string().min(1),
   brandId: z.string().min(1),
@@ -71,7 +71,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({ initialData, categorie
 
   const defaultValues = initialData || {
     name: '',
-    shortDesc: '',
     desc: '',
     brandId: '',
     categoryId: '',
@@ -173,19 +172,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({ initialData, categorie
             />
             <FormField
               control={form.control}
-              name='shortDesc'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Short Description</FormLabel>
-                  <FormControl>
-                    <Input disabled={loading} {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name='desc'
               render={({ field }) => (
                 <FormItem>
@@ -197,19 +183,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({ initialData, categorie
                 </FormItem>
               )}
             />
-            {/* <FormField
-              control={form.control}
-              name='price'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Price</FormLabel>
-                  <FormControl>
-                    <Input type='number' disabled={loading} placeholder='9.99' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
             <FormField
               control={form.control}
               name='brandId'
