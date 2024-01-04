@@ -54,8 +54,7 @@ export const ColorForm: React.FC<ColorFormProps> = ({
   const form = useForm<ColorFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
-      name: '',
-      value: ''
+      name: ''
     }
   });
 
